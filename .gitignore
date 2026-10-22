@@ -1,0 +1,23 @@
+/bitrix/
+/upload/
+/.gitkeep
+
+# Секреты и локальные настройки
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# IDE
+.idea/
+.vscode/
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.swp
+Thumbs.db
+.DS_Store
