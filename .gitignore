@@ -1,6 +1,7 @@
 /bitrix/
 /upload/
 /.gitkeep
+/local/vendor/
 
 # Секреты и локальные настройки
 .env
