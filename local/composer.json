@@ -10,6 +10,7 @@
     }
   },
   "require": {
-    "andreyryabin/sprint.migration": "^5.16"
+    "andreyryabin/sprint.migration": "^5.16",
+    "phpoffice/phpword": "^1.4"
   }
 }

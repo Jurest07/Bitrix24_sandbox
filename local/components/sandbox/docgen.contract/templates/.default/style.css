@@ -1,0 +1,66 @@
+.docgen-contract {
+    max-width: 600px;
+    padding: 24px;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+}
+
+.docgen-contract h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #1e293b;
+    font-size: 18px;
+}
+
+.docgen-contract .docgen-deal-info {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: #e0e7ff;
+    border-radius: 8px;
+    color: #3730a3;
+    font-size: 14px;
+}
+
+.docgen-contract button {
+    padding: 12px 24px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.docgen-contract button:hover {
+    background: #2563eb;
+}
+
+.docgen-contract button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+.docgen-contract #docgen_result {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+}
+
+.docgen-contract #docgen_result.success {
+    display: block;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.docgen-contract #docgen_result.error {
+    display: block;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
