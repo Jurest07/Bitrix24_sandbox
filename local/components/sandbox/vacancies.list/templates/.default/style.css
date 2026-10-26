@@ -1,0 +1,688 @@
+/* ============================================
+   СПИСОК ВАКАНСИЙ
+   ============================================ */
+
+.vacancies-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+}
+
+.vacancies-list__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 30px 0;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+.vacancies-list__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.vacancies-list__empty {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* ============================================
+   КАРТОЧКА ВАКАНСИИ
+   ============================================ */
+
+.vacancy-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vacancy-card:hover {
+    border-color: #0066cc;
+    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.12);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ЗАГОЛОВОК
+   ============================================ */
+
+.vacancy-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.vacancy-card__title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.vacancy-card__section {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #0066cc;
+    background: #e6f0ff;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   МЕТА-ИНФОРМАЦИЯ
+   ============================================ */
+
+.vacancy-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.vacancy-card__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+.vacancy-card__icon {
+    flex-shrink: 0;
+    color: #999;
+}
+
+/* ============================================
+   ОПИСАНИЕ
+   ============================================ */
+
+.vacancy-card__description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1;
+
+    /* Обрезаем длинный текст до 4 строк */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ============================================
+   ФУТЕР
+   ============================================ */
+
+.vacancy-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.vacancy-card__salary {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+}
+
+.vacancy-card__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0066cc;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.vacancy-card__button:hover {
+    background: #0052a3;
+    transform: translateX(2px);
+}
+
+.vacancy-card__button svg {
+    transition: transform 0.2s ease;
+}
+
+.vacancy-card__button:hover svg {
+    transform: translateX(3px);
+}
+
+/* ============================================
+   АДАПТИВНОСТЬ
+   ============================================ */
+
+@media (max-width: 768px) {
+    .vacancies-list {
+        padding: 16px;
+    }
+
+    .vacancies-list__title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .vacancies-list__items {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .vacancy-card {
+        padding: 20px;
+    }
+
+    .vacancy-card__title {
+        font-size: 18px;
+    }
+
+    .vacancy-card__footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .vacancy-card__button {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .vacancy-card__meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* ============================================
+   ВЫПАДАЮЩИЙ СПИСОК PER_PAGE
+   ============================================ */
+
+.vacancies-per-page {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 14px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+}
+
+.vacancies-per-page label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ===== САМ SELECT ===== */
+.vacancies-per-page select {
+    /* Убираем дефолтный вид браузера */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Размеры и отступы */
+    padding: 8px 36px 8px 14px;
+    min-width: 80px;
+
+    /* Шрифт */
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    font-family: inherit;
+
+    /* Фон и рамка */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    /* Своя стрелка через SVG */
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+
+    /* Курсор */
+    cursor: pointer;
+
+    /* Плавные переходы */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* При наведении */
+.vacancies-per-page select:hover {
+    border-color: #0066cc;
+}
+
+/* При фокусе */
+.vacancies-per-page select:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+}
+
+/* Стилизация выпадающего списка (внутри select) */
+.vacancies-per-page select option {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #1a1a1a;
+    background: #ffffff;
+}
+
+/* Убираем стрелку в IE */
+.vacancies-per-page select::-ms-expand {
+    display: none;
+}
+
+/* ============================================
+   ФОРМА ФИЛЬТРОВ
+   ============================================ */
+
+.vacancies-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 14px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+}
+
+/* ============================================
+   ЧИПСЫ-ФИЛЬТРЫ
+   ============================================ */
+
+.filter-chips {
+    position: relative;
+}
+
+/* Кнопка-триггер */
+.filter-chips__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    font-family: inherit;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-chips__trigger:hover {
+    border-color: #0066cc;
+}
+
+.filter-chips.is-open .filter-chips__trigger {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+}
+
+/* Badge */
+.filter-chips__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #0066cc;
+    border-radius: 10px;
+}
+
+/* Стрелка */
+.filter-chips__arrow {
+    flex-shrink: 0;
+    color: #666;
+    transition: transform 0.2s ease;
+}
+
+.filter-chips.is-open .filter-chips__arrow {
+    transform: rotate(180deg);
+}
+
+/* ============================================
+   ПАНЕЛЬ ФИЛЬТРА
+   ============================================ */
+
+.filter-chips__panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 100;
+    display: none;
+    width: max-content;
+    min-width: 100%;
+    max-width: 320px;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.filter-chips.is-open .filter-chips__panel {
+    display: block;
+}
+
+/* Секция выбранных чипсов */
+.filter-chips__selected {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-chips__selected:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* ============================================
+   ЧИПС
+   ============================================ */
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 4px 4px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0066cc;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.chip__remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.chip__remove:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   ЧЕКБОКСЫ
+   ============================================ */
+
+.filter-chips__options {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1a1a1a;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.filter-option:hover {
+    background: #f0f7ff;
+}
+
+.filter-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #0066cc;
+}
+
+/* ============================================
+   КНОПКИ ДЕЙСТВИЙ
+   ============================================ */
+
+.vacancies-filter__actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.vacancies-filter__submit {
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0066cc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.vacancies-filter__submit:hover {
+    background: #0052a3;
+}
+
+.vacancies-filter__reset {
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.vacancies-filter__reset:hover {
+    border-color: #999;
+    color: #1a1a1a;
+}
+
+/* ============================================
+   АДАПТИВНОСТЬ
+   ============================================ */
+
+@media (max-width: 768px) {
+    .vacancies-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-chips__trigger {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-chips__panel {
+        width: 100%;
+        max-width: none;
+    }
+
+    .vacancies-filter__actions {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .vacancies-filter__submit,
+    .vacancies-filter__reset {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   ФИЛЬТР: ОПЫТ (SELECT)
+   ============================================ */
+
+.filter-select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+}
+
+.filter-select:hover {
+    border-color: #0066cc;
+}
+
+.filter-select:focus-within {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+}
+
+.filter-select label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    white-space: nowrap;
+}
+
+.filter-select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 24px 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    font-family: inherit;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    background-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-select select:focus {
+    outline: none;
+}
+
+/* ============================================
+   ФИЛЬТР: ПОИСК
+   ============================================ */
+
+.filter-search {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-search:hover {
+    border-color: #0066cc;
+}
+
+.filter-search:focus-within {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+}
+
+.filter-search input {
+    width: 100%;
+    padding: 0;
+    font-size: 14px;
+    color: #1a1a1a;
+    font-family: inherit;
+    background: transparent;
+    border: none;
+}
+
+.filter-search input:focus {
+    outline: none;
+}
+
+.filter-search input::placeholder {
+    color: #999;
+}
+
+/* ============================================
+   АДАПТИВНОСТЬ (обновление)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .filter-select,
+    .filter-search {
+        width: 100%;
+    }
+
+    .filter-select select {
+        flex: 1;
+    }
+}

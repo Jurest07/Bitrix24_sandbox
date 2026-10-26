@@ -1,0 +1,146 @@
+/* ============================================
+   ДЕТАЛЬНАЯ СТРАНИЦА ВАКАНСИИ
+   ============================================ */
+
+.vacancy-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+.vacancy-detail__hero {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.vacancy-detail__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+.vacancy-detail__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.vacancy-detail__badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    background: #f0f0f0;
+    border-radius: 20px;
+}
+
+.vacancy-detail__badge--section {
+    color: #0066cc;
+    background: #e6f0ff;
+}
+
+/* ===== КЛЮЧЕВАЯ ИНФОРМАЦИЯ ===== */
+.vacancy-detail__key-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.vacancy-detail__key-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vacancy-detail__key-item--salary .vacancy-detail__key-value {
+    color: #0066cc;
+    font-weight: 700;
+}
+
+.vacancy-detail__icon {
+    flex-shrink: 0;
+    color: #999;
+}
+
+.vacancy-detail__key-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vacancy-detail__key-label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.vacancy-detail__key-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* ===== БЛОКИ ===== */
+.vacancy-detail__block {
+    margin-bottom: 32px;
+}
+
+.vacancy-detail__block-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0066cc;
+    display: inline-block;
+}
+
+.vacancy-detail__block-content {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+}
+
+.vacancy-detail__block-content p {
+    margin: 0 0 12px 0;
+}
+
+.vacancy-detail__block-content ul,
+.vacancy-detail__block-content ol {
+    margin: 0 0 12px 0;
+    padding-left: 24px;
+}
+
+.vacancy-detail__block-content li {
+    margin-bottom: 6px;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .vacancy-detail {
+        padding: 16px;
+    }
+
+    .vacancy-detail__title {
+        font-size: 24px;
+    }
+
+    .vacancy-detail__key-info {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+}
