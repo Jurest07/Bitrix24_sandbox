@@ -54,6 +54,10 @@ $params = $arResult['FILTER'];
         <p class="il-error-box" role="alert"><?= $escape($arResult['ERROR']) ?></p>
     <?php endif; ?>
 
+    <?php if ($arResult['CAN_EXPORT'] && $arResult['ERROR'] === ''): ?>
+        <p><a href="<?= $escape($arResult['EXPORT_URL']) ?>">Скачать CSV по текущим фильтрам (все записи)</a></p>
+    <?php endif; ?>
+
     <div class="il-scroll">
         <table class="il-table">
             <thead>

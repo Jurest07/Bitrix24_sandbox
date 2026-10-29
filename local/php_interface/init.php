@@ -11,6 +11,8 @@ Loader::registerAutoLoadClasses(null, [
     TabHandler::class => '/local/utils/Handlers/TabHandler.php',
     Parser::class => '/local/utils/IntegrationLog/Parser.php',
     Storage::class => '/local/utils/IntegrationLog/Storage.php',
+    \Utils\IntegrationLog\Query::class => '/local/utils/IntegrationLog/Query.php',
+    \Utils\IntegrationLog\CsvExport::class => '/local/utils/IntegrationLog/CsvExport.php',
     Access::class => '/local/utils/IntegrationLog/Access.php',
 ]);
 
